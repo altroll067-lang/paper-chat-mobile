@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Paper Chat',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        colorScheme: const ColorScheme.dark(primary: Color(0xFF6C63FF)),
-      ),
+      theme: ThemeData.dark(),
       home: const WebViewPage(),
     );
   }
@@ -30,8 +28,6 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-  InAppWebViewController? webViewController;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +43,7 @@ class _WebViewPageState extends State<WebViewPage> {
             useHybridComposition: true,
             javaScriptEnabled: true,
             domStorageEnabled: true,
-            databaseEnabled: true,
           ),
-          onWebViewCreated: (controller) {
-            webViewController = controller;
-          },
         ),
       ),
     );
